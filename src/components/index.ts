@@ -1,0 +1,1 @@
+export { default as SharedTitle } from './SharedTitle';

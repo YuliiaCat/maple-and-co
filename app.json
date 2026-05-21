@@ -8,7 +8,8 @@
     "scheme": "mapleandco",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "icon": "./assets/icon.png"
+      "icon": "./assets/icon.png",
+      "bundleIdentifier": "com.yuliiaber.maple-and-co"
     },
     "android": {
       "adaptiveIcon": {
@@ -18,10 +19,6 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "predictiveBackGestureEnabled": false
-    },
-    "web": {
-      "output": "static",
-      "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
       "expo-router",

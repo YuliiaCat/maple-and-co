@@ -1,16 +1,46 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import React from 'react';
-import { useColorScheme } from 'react-native';
+import { useFonts } from "expo-font";
+import { Stack, usePathname } from "expo-router";
+import * as SplashScreen from "expo-splash-screen";
+import { StatusBar } from "expo-status-bar";
+import React, { useEffect } from "react";
+import { KeyboardProvider } from "react-native-keyboard-controller";
 
-import { AnimatedSplashOverlay } from '@/components/animated-icon';
-import AppTabs from '@/components/app-tabs';
+SplashScreen.preventAutoHideAsync();
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
+const RootLayout = () => {
+  const [fontsLoaded] = useFonts({
+    "Mulish-Light": require("~/assets/fonts/Mulish-Light.ttf"),
+    "Mulish-Regular": require("~/assets/fonts/Mulish-Regular.ttf"),
+    "Mulish-Medium": require("~/assets/fonts/Mulish-Medium.ttf"),
+    "Mulish-Bold": require("~/assets/fonts/Mulish-Bold.ttf"),
+    "Mulish-SemiBold": require("~/assets/fonts/Mulish-SemiBold.ttf"),
+  });
+
+  const routeName = usePathname();
+  useEffect(() => {
+    console.log({ routeName });
+  }, [routeName]);
+
+  useEffect(() => {
+    if (fontsLoaded) {
+      SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <AnimatedSplashOverlay />
-      <AppTabs />
-    </ThemeProvider>
+    <KeyboardProvider>
+      <StatusBar style="dark" />
+      <Stack
+        screenOptions={{
+          headerShown: false,
+        }}
+      />
+    </KeyboardProvider>
   );
-}
+};
+
+export default RootLayout;
