@@ -9,11 +9,11 @@ SplashScreen.preventAutoHideAsync();
 
 const RootLayout = () => {
   const [fontsLoaded] = useFonts({
-    "Mulish-Light": require("~/assets/fonts/Mulish-Light.ttf"),
     "Mulish-Regular": require("~/assets/fonts/Mulish-Regular.ttf"),
     "Mulish-Medium": require("~/assets/fonts/Mulish-Medium.ttf"),
-    "Mulish-Bold": require("~/assets/fonts/Mulish-Bold.ttf"),
     "Mulish-SemiBold": require("~/assets/fonts/Mulish-SemiBold.ttf"),
+    "Mulish-Bold": require("~/assets/fonts/Mulish-Bold.ttf"),
+    "Mulish-ExtraBold": require("~/assets/fonts/Mulish-ExtraBold.ttf"),
   });
 
   const routeName = usePathname();

@@ -5,14 +5,11 @@ export const Colors = {
   darkPrimary: "#3C2B26",
   darkOlive: "#36421F",
   buttonGreen: "#A3A86B",
+  lightOlive: "#F3F5E7",
   greyPlaceholder: "#998F8E",
   lightGrey: "#D9D9D9",
   light: "#F6F4F6",
   primaryRed: "#d73a22ff",
-
-  pinkLight: "#FFE6E6",
-  primaryLight: "#FFAA9E",
-  primaryBlurred: "#F98876",
-  grey: "#B9B3B2",
-  darkGrey: "#787878",
+  borderCard: "#E1E6D2",
+  deepOlive: "#68705A",
 };

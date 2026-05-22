@@ -3,11 +3,18 @@ import { Fonts } from "@/constants/fonts";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import { Alert, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import IFormValues from "~/types/form";
-import FormInput from "./FormInput";
 import { useBusinessStore } from "~/store";
+import IFormValues from "~/types/form";
+import { categories } from "../data/categories";
+import CategoryDropdown from "./CategoryDropdown";
+import FormInput from "./FormInput";
 
-const Form = () => {
+interface IForm {
+  isOpen: boolean;
+  setIsOpen: (v: boolean) => void;
+}
+
+const Form: React.FC<IForm> = ({ isOpen, setIsOpen }) => {
   const { control, handleSubmit, reset } = useForm<IFormValues>({
     defaultValues: {
       businessName: "",
@@ -17,13 +24,14 @@ const Form = () => {
   });
   const { addBusiness } = useBusinessStore();
 
-
   const onSubmit = (data: IFormValues) => {
     addBusiness(data);
 
     Alert.alert("Success", "Business added successfully");
     reset();
   };
+
+  const categoriesList = categories.map((item) => item.name);
 
   return (
     <View style={styles.container}>
@@ -45,7 +53,13 @@ const Form = () => {
           rules={{ required: "Category is required" }}
           render={({ field: { onChange, value }, fieldState: { error } }) => (
             <>
-              <FormInput value={value} onChange={onChange} placeholder="Category" />
+              <CategoryDropdown
+                value={value}
+                onChange={onChange}
+                categories={categoriesList}
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
+              />
               {error && <Text style={styles.error}>{error.message}</Text>}
             </>
           )}
@@ -78,7 +92,6 @@ const Form = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     paddingVertical: 20,
     gap: 45,
   },

@@ -1,4 +1,5 @@
 import { Colors } from "@/constants/Colors";
+import { Fonts } from "@/constants/fonts";
 import React from "react";
 import { StyleSheet, TextInput } from "react-native";
 
@@ -28,10 +29,11 @@ const styles = StyleSheet.create({
   inputContainer: {
     width: "100%",
     borderWidth: 1,
-    borderColor: Colors.grey,
-    paddingVertical: 10,
+    borderColor: Colors.greyPlaceholder,
+    paddingVertical: 12,
     paddingHorizontal: 18,
     borderRadius: 10,
+    fontFamily: Fonts.MulishRegular,
     fontSize: 16,
     backgroundColor: Colors.white,
   },

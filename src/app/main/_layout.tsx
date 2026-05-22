@@ -1,5 +1,6 @@
 import { AllListingsIcon, HomeIcon } from "@/components/ui";
 import { Colors } from "@/constants/Colors";
+import { Fonts } from "@/constants/fonts";
 import { BottomTabBarButtonProps } from "@react-navigation/bottom-tabs";
 import { Tabs } from "expo-router";
 import React, { forwardRef } from "react";
@@ -52,7 +53,7 @@ export default function TabLayout() {
           title: "Home",
           headerShown: false,
           tabBarButton: (props) => <CustomTabButton {...props} />,
-          tabBarLabelStyle: { fontFamily: "Mulish-Bold", fontSize: 11, paddingTop: 2 },
+          tabBarLabelStyle: { fontFamily: Fonts.MulishBold, fontSize: 11, paddingTop: 2 },
           tabBarIcon: ({ focused }) => (
             <HomeIcon stroke={focused ? COLOR_ACTIVE : COLOR_INACTIVE} />
           ),
@@ -63,7 +64,7 @@ export default function TabLayout() {
         name="all-listings"
         options={{
           title: "All Listings",
-          tabBarLabelStyle: { fontFamily: "Mulish-Bold", fontSize: 11, paddingTop: 2 },
+          tabBarLabelStyle: { fontFamily: Fonts.MulishBold, fontSize: 11, paddingTop: 2 },
           tabBarButton: (props) => <CustomTabButton {...props} />,
           headerShown: false,
           tabBarIcon: ({ focused }) => (
