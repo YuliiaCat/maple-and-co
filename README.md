@@ -22,6 +22,24 @@ This project was built with Expo.
 - For Android Emulator: Android Studio installed
 - For physical device testing: Expo Go app installed on the phone
 
+To run the app in the iOS Simulator:
+
+   ```bash
+   npm run ios
+   ```
+
+To run the app in the Android Emulator:
+
+   ```bash
+   npm run android
+   ```
+
+Alternatively, you can start the Expo development server:
+
+   ```bash
+   npx expo start
+   ```
+
 Then choose one of the available options in the terminal:
 
 - Press i to open the app in the iOS Simulator
